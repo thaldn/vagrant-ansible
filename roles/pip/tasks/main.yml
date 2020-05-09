@@ -8,3 +8,7 @@
     apt:
       name: python3-pip
       update_cache: yes
+  - name: update pip
+    shell: pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple pip -U
+  - name: setup pipy mirror
+    shell: pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
