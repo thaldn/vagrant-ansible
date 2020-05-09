@@ -1,0 +1,10 @@
+---
+  - name: update apt source list with mirrors
+    copy:
+      src: sources.list
+      backup: yes
+      dest: /etc/apt/
+  - name: Install pip
+    apt:
+      name: python3-pip
+      update_cache: yes
