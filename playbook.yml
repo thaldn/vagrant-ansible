@@ -1,4 +1,4 @@
 ---
-- hosts: default
+- hosts: server
   roles:
     - { role: pip, become: yes}
