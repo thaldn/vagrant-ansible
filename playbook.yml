@@ -1,4 +1,4 @@
 ---
 - hosts: server
   roles:
-    - { role: docker, become: yes}
+    - { role: docker-jenkins, become: yes}

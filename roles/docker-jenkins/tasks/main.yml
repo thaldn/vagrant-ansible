@@ -1,0 +1,21 @@
+---
+- name: Setup docker environment
+  include: setup.yml
+
+- name: Build {{ docker_jenkins_image }} image
+  docker_image:
+    build:
+      path: "{{ docker_jenkins_home }}"
+    name: "{{ docker_jenkins_image }}"
+    source: build
+    state: present
+
+- name: Create {{ docker_jenkins_container }} container
+  docker_container:
+    name: "{{ docker_jenkins_container }}"
+    image: "{{ docker_jenkins_image }}"
+    published_ports:
+      - "{{ jenkins_port }}:{{ jenkins_port }}"
+      - "50000:50000"
+    restart_policy: always
+
