@@ -1,7 +1,7 @@
 ---
   - name: update apt source list with mirrors
     copy:
-      src: sources_ubuntu.list
+      src: sources.list
       backup: yes
       dest: /etc/apt/sources.list
   - name: Check if pip is already installed

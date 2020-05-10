@@ -27,6 +27,11 @@
     name: docker-ce
     update_cache: yes
 
+- name: set up docker registry mirrors
+  copy:
+    src: daemon.json
+    dest: /etc/docker/daemon.json
+
 - name: Install docker-py
   pip:
     name: docker-py
